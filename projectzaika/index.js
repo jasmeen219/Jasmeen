@@ -1,10 +1,15 @@
 const express = require("express")
+const cors = require("cors")
 const app = express()
 const port = 4001
 const db= require("./server/config/db")
 
+app.use(cors())
+
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
 var apis= require("./server/routes/apiRoutes")
 
  app.use("/api",apis)

@@ -64,6 +64,9 @@ function Header() {
                         <Link to="/bookings" className="btn btn-primary py-2 px-4">
                             Book A Table
                         </Link>
+                        <Link to="/login" className="btn btn-primary py-2 px-4">
+                           login
+                        </Link>
                     </div>
                 </nav>
             </div>

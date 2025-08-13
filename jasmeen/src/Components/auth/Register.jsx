@@ -1,11 +1,25 @@
 import { Link } from "react-router-dom";
 import PageTitle from "../Layout/Pagetitle";
+import React, { useState } from "react";
 // import PageTitle from "../Layout/PageTitle"; // Adjusted import path for your project
 
 export default function Register() {
+
+  const[email, setEmail] = useState("");
+  const[password, setpassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you can handle the registration logic, e.g., API call to register the user
+    console.log("Email:", email);
+    console.log("Password:",password)
+  }
+
+
+
   return (
     <>
-      <PageTitle title={"register"} />
+      <PageTitle title={"Register"} />
       <div className="container my-5">
         <div className="row no-gutters">
           <div className="col-md-7">
@@ -30,6 +44,8 @@ export default function Register() {
                         id="email"
                         placeholder="Email"
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   </div>
@@ -45,6 +61,8 @@ export default function Register() {
                         id="password"
                         placeholder="Password"
                         required
+                        value={password}
+                        onChange={(e) => setpassword(e.target.value)}
                       />
                     </div>
                   </div>
