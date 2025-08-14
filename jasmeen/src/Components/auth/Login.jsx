@@ -2,7 +2,6 @@ import { data, Link } from "react-router-dom";
 import React, { useState } from "react";
 import PageTitle from "../Layout/Pagetitle";
 import axios from "axios";
-// import PageTitle from "./Layout/PageTitle"; // Adjusted import path for your project
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -32,13 +31,42 @@ const  handleSubmit = async(e) => {
 
   return (
     <>
-      <PageTitle title={"Login"} />
+      {/* <PageTitle title={"Login"} /> */}
+      
+            <div className="container-xxl bg-white p-0">
+                <div className="container-xxl py-5 bg-dark hero-header mb-5">
+                    <div className="container text-center my-5 pt-5 pb-4">
+                        <h1 className="display-3 text-white mb-3 animated slideInDown">
+                            Login 
+                        </h1>
+                        <nav aria-label="breadcrumb">
+                            <ol className="breadcrumb justify-content-center text-uppercase">
+                                <li className="breadcrumb-item">
+                                    <Link to="#">Home</Link>
+                                </li>
+                                <li className="breadcrumb-item">
+                                    <Link to="#">Pages</Link>
+                                </li>
+                                <li
+                                    className="breadcrumb-item text-white active"
+                                    aria-current="page"
+                                >
+                                    Login
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+    </div>
       
       <div className="container my-5">
-        <div className="row no-gutters">
-          <div className="col-md-7">
+        
+        <div className="row no-gutters justify-content-center">
+          <div className="col-md-7" style={{boxshadow: "0px 0px 0px 10px gray"}}>
             <div className="contact-wrap w-100 p-md-5 p-4">
-              <h3 className="mb-4">Login</h3>
+
+              
+              <h3 className="mb-4 text-center">Login</h3>
               <form
            
                 id="loginForm"

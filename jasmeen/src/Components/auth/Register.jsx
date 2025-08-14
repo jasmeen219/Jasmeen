@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageTitle from "../Layout/Pagetitle";
 import React, { useState } from "react";
-// import PageTitle from "../Layout/PageTitle"; // Adjusted import path for your project
+import axios from "axios";
 
 export default function Register() {
 
