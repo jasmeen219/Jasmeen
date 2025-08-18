@@ -10,6 +10,9 @@ import Testimonials from "./Components/Pages/Testimonials"
 import Layout from "./Components/Layout/Layout"
 import Login from "./Components/auth/Login" 
 import Register from "./Components/auth/Register"
+import AdminMaster from "./admin/layout/AdminMaster"
+import AdminDashboard from "./admin/layout/AdminDashboard"
+import ManageCustomer from "./admin/pages/ManageCustomer"
 function App() {
 
 
@@ -40,6 +43,12 @@ function App() {
         <Route path="testimonials" element={<Testimonials/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
+      </Route>
+
+
+      <Route path="/admin" element={<AdminMaster/>}>
+      <Route index element={<AdminDashboard/>}/>
+      <Route path="manageCustomer" element={<ManageCustomer/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

@@ -22,6 +22,7 @@ const login = (req,res)=>{
     }
     else{
         userModel.findOne({email:req.body.email})
+        .populate("")
         .then((userData)=>{
             console.log("userData",userData);
             

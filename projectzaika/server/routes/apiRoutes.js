@@ -2,6 +2,13 @@ const router= require("express").Router()
 const multer=require("multer")
 const storage=multer.memoryStorage()
 const upload=multer({storage: storage})
+const customerController= require("../api/customer/customerController")
+
+router.post("/customer/add",customerController.add)
+
+
+
+
 
 // menu
 const menuController= require("../api/menu/menuController")
@@ -41,8 +48,6 @@ router.post("/assigndelivery/DeleteSingle",assigndeliveryController.DeleteSingle
 router.post("/assigndelivery/UpdateSingle",assigndeliveryController.UpdateSingle)
 
 // customer
-const customerController= require("../api/customer/customerController")
-router.post("/customer/add",customerController.add)
 router.post("/customer/all",customerController.all)
 router.post("/customer/single",customerController.single)
 router.post("/customer/DeleteSingle",customerController.DeleteSingle)

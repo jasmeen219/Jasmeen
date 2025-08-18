@@ -1,13 +1,19 @@
-import { data, Link } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import PageTitle from "../Layout/Pagetitle";
 import axios from "axios";
+import { FadeLoader } from "react-spinners";
+import { toast, ToastContainer } from "react-toastify";
+import ApiServices from "../../ApiServices";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
+  const [loading, setloading] = useState(false);
+  const nav=useNavigate()
 
 const  handleSubmit = async(e) => {
+  setloading(true)
     e.preventDefault();
     // Here you can handle the login logic, e.g., API call to authenticate the user
     console.log("Email:", email);
@@ -16,12 +22,37 @@ const  handleSubmit = async(e) => {
     email: email,
     password: password
   }
-  await axios.post("http://localhost:4001/api/user/login", data).then((res) => {
+  // await axios.post("http://localhost:4001/api/user/login", data).then((res) => {
+  await ApiServices.login(data).then((res) => {
     console.log(res.data);
-   
+   if(res.data.success){
+     toast.success(res.data.message)
+     sessionStorage.setItem("userId", res.data.data._id)
+     sessionStorage.setItem("email", res.data.data.email)
+     sessionStorage.setItem("token", res.data.token)
+     sessionStorage.setItem("isLogin", true)
+     sessionStorage.setItem("userType", res.data.data.userType)
+
+     if (res.data.data.userType==1){
+      nav("/admin")
+     }
+
+    }
+    else{
+     toast.success(res.data.message)
+
+   }
+    // sessionStorage.setItem("isLogin", true)
+
+
+    
   }).catch((err) => {
     console.error("Error during login:", err);
+    toast.error(res.data.message)
     alert("Login Failed");  
+
+  }).finally(()=>{
+    setloading(false)
   })
     
   }
@@ -31,6 +62,7 @@ const  handleSubmit = async(e) => {
 
   return (
     <>
+    <ToastContainer/>
       {/* <PageTitle title={"Login"} /> */}
       
             <div className="container-xxl bg-white p-0">
@@ -58,22 +90,25 @@ const  handleSubmit = async(e) => {
                     </div>
                 </div>
     </div>
-      
+      {
+        loading?
+        <FadeLoader cssOverride={{ margin: "20% 50%" }} />
+        :
       <div className="container my-5">
-        
+
         <div className="row no-gutters justify-content-center">
-          <div className="col-md-7" style={{boxshadow: "0px 0px 0px 10px gray"}}>
+          <div className="col-md-8" style={{ boxshadow: "0px 0px 0px 10px gray" }}>
             <div className="contact-wrap w-100 p-md-5 p-4">
 
-              
+
               <h3 className="mb-4 text-center">Login</h3>
               <form
-           
+
                 id="loginForm"
                 name="loginForm"
                 className="contactForm"
                 onSubmit={handleSubmit}
-                
+
               >
                 <div className="row">
                   <div className="col-md-12">
@@ -127,14 +162,12 @@ const  handleSubmit = async(e) => {
               </div>
             </div>
           </div>
-          <div className="col-md-5 d-flex align-items-stretch">
-            <div
-              className="info-wrap w-100 p-5 img"
-              style={{ backgroundImage: "url(/assets/images/img.jpg)" }}
-            ></div>
-          </div>
+          
         </div>
       </div>
+      }
+      
+      
     </>
   );
 }

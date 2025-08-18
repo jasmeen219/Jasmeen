@@ -6,12 +6,12 @@ const adminreg = ()=>{
                     if(userdata == null){
                             let userObj = new userModel()
                             userObj.name = "Jasmeen"
-                            userObj.email ="jasmeenk@gmail.com"
-                            userObj.password = bcrypt.hashSync("219",10)
+                            userObj.email ="admin@gmail.com"
+                            userObj.password = bcrypt.hashSync("123",10)
                             userObj.userType = 1
                         userObj.save()
                             .then((admindata)=>{
-                                        console.log("admin added successfully!!");
+                                        console.log("admin added successfully!!");  
                                         
                             })
                             .catch((err)=>{
