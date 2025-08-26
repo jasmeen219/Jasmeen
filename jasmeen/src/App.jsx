@@ -13,6 +13,7 @@ import Register from "./Components/auth/Register"
 import AdminMaster from "./admin/layout/AdminMaster"
 import AdminDashboard from "./admin/layout/AdminDashboard"
 import ManageCustomer from "./admin/pages/ManageCustomer"
+import ManageVendor from "./admin/pages/ManageVendor"
 function App() {
 
 
@@ -49,6 +50,7 @@ function App() {
       <Route path="/admin" element={<AdminMaster/>}>
       <Route index element={<AdminDashboard/>}/>
       <Route path="manageCustomer" element={<ManageCustomer/>}/>
+      <Route path="manageVendor" element={<ManageVendor/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

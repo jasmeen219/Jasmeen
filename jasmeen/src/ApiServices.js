@@ -16,6 +16,10 @@ export default new class ApiServices{
         return axios.post(baseUrl +"/customer/all", data)
         
     }
+    getAllVendors(data){
+        return axios.post(baseUrl +"/vendor/all", data)
+        
+    }
     CustomerStatus(data){
         return axios.post(baseUrl +"/customer/DeleteSingle", data)
 

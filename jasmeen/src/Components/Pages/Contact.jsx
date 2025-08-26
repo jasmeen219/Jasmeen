@@ -42,7 +42,7 @@ function Contact() {
                                         </h5>
                                         <p>
                                             <i className="fa fa-envelope-open text-primary me-2" />
-                                            book@example.com
+                                            jasmeen2127@gmail.com
                                         </p>
                                     </div>
                                     <div className="col-md-4">
@@ -51,7 +51,7 @@ function Contact() {
                                         </h5>
                                         <p>
                                             <i className="fa fa-envelope-open text-primary me-2" />
-                                            info@example.com
+                                            jasmeenx2109@gmail.com
                                         </p>
                                     </div>
                                     <div className="col-md-4">
@@ -60,7 +60,7 @@ function Contact() {
                                         </h5>
                                         <p>
                                             <i className="fa fa-envelope-open text-primary me-2" />
-                                            tech@example.com
+                                            jasmeenx2109@gmail.com
                                         </p>
                                     </div>
                                 </div>

@@ -42,13 +42,13 @@ const  handleSubmit = async(e) => {
      toast.success(res.data.message)
 
    }
-    // sessionStorage.setItem("isLogin", true)
+    sessionStorage.setItem("isLogin", true)
 
 
     
   }).catch((err) => {
     console.error("Error during login:", err);
-    toast.error(res.data.message)
+    toast.error(err)
     alert("Login Failed");  
 
   }).finally(()=>{
