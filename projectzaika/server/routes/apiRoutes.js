@@ -37,7 +37,7 @@ router.post("/order/UpdateSingle",orderController.UpdateSingle)
 // user
 const userController= require("../api/user/userController")
 router.post("/user/login",userController.login)
-router.post("/user/changepassword",userController.changePassword)
+router.post("/user/changepassword",userController.changePassword) 
 
 // assigndelivery
 const assigndeliveryController= require("../api/assigndelivery/assigndeliveryController")

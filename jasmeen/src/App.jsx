@@ -14,6 +14,11 @@ import AdminMaster from "./admin/layout/AdminMaster"
 import AdminDashboard from "./admin/layout/AdminDashboard"
 import ManageCustomer from "./admin/pages/ManageCustomer"
 import ManageVendor from "./admin/pages/ManageVendor"
+import AddMenu from "./admin/pages/Menu/AddMenu"
+import ManageMenu from "./admin/pages/Menu/ManageMenu"
+import UpdateMenu from "./admin/pages/Menu/UpdateMenu"
+import ViewMenu from "./userside/pages/ViewMenu"
+import AddOrder from "./userside/pages/AddOrder"
 function App() {
 
 
@@ -44,6 +49,8 @@ function App() {
         <Route path="testimonials" element={<Testimonials/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
+            <Route path="ViewMenu" element={<ViewMenu />}/>
+            <Route path="addOrder/:id/:price" element={<AddOrder />}/>
       </Route>
 
 
@@ -51,6 +58,9 @@ function App() {
       <Route index element={<AdminDashboard/>}/>
       <Route path="manageCustomer" element={<ManageCustomer/>}/>
       <Route path="manageVendor" element={<ManageVendor/>}/>
+      <Route path="addmenu" element={<AddMenu/>}/>
+      <Route path="manageMenu" element={<ManageMenu/>}/>
+            <Route path="updatemenu/:id" element={<UpdateMenu/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

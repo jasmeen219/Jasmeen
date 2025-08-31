@@ -9,9 +9,7 @@ const add = (req, res) => {
     if (!req.body.menuitemId) {
         errMsgs.push("menuitemId is required!!")
     }
-    if (!req.body.shipping) {
-        errMsgs.push("shipping is required!!")
-    }
+    
     if (!req.body.address) {
         errMsgs.push("address is required!!")
     }
@@ -38,7 +36,7 @@ const add = (req, res) => {
         let orderobj = new orderModel()
         orderobj.menuitemId = req.body.menuitemId
         orderobj.userId = req.body.userId
-        orderobj.shipping = req.body.shipping
+        orderobj.shipping = "Pending"
         orderobj.address = req.body.address
         orderobj.name = req.body.name
         orderobj.email = req.body.email
@@ -67,7 +65,10 @@ const add = (req, res) => {
 }
 
 const all = (req, res) => {
-    orderModel.find().populate("userId").then((menudata) => {
+    orderModel.find(req.body)
+    .populate("userId")
+        .populate("menuitemId")
+    .then((menudata) => {
         if (menudata == null) {
             res.send({
                 status: 409,

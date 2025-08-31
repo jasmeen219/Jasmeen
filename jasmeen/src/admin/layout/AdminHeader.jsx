@@ -32,6 +32,25 @@ function AdminHeader() {
                             <Link to="/admin/manageCustomer" className="nav-item nav-link">
                                 Manage User
                             </Link>
+                           
+                        </div>
+                        <div className="nav-item dropdown">
+                            <Link
+                                href="#"
+                                className="nav-link dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                            >
+                                Menu
+                            </Link>
+                            <div className="dropdown-menu m-0">
+                                <Link to="/admin/addmenu" className="nav-item nav-link">
+                                    Add Menu
+                                </Link>
+                                <Link to="/admin/manageMenu" className="nav-item nav-link">
+                                    Manage Menu
+                                </Link>
+
+                            </div>
                         </div>
                        
                         <Link to="/login" className="btn btn-primary py-2 px-4">
